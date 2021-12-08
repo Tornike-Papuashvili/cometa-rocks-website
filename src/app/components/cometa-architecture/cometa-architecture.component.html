@@ -1,0 +1,24 @@
+<div class="section-architecture">
+
+    <div class="header">
+        <h2>Architecture</h2>
+        <div class="separator"></div>
+        <p> co.meta has been developed with 100% open source tools.
+            Scales 100%. Can be used on-premises, on desktop or on cloud. co.meta is unicode compliant.
+            The co.meta REST API integrates easily with continous testing solutions as seen in 
+            <a href="https://about.gitlab.com/">gitlab</a>. </p>
+    </div>
+
+    
+    <div class="content-wrapper">
+        <div class="content" *ngFor="let tech of techStack">
+            <div class="tech">
+                <a href="{{tech.href}}"><img [src]="tech.image"></a>
+                <a href="{{tech.href}}"><strong>{{tech.name}}</strong></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    

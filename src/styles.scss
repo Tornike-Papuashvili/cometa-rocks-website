@@ -1,4 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+$heavy-orange: #E2B154;
+$lightgray: lightgray;
+$lightgreen: lightgreen;
+$lightblue: lightblue;
+$dark_footer: #343333;
+$gray: gray;
+$white: #ffffff;
+$whitish: #f1f1f1;
+$blackish: #111111;
+$medium-gray: #aeabab;
+$p-fsize: .9em;
+$a-fsize: .9em;
+
 * {
     padding: 0;
     margin: 0;
@@ -7,5 +22,5 @@
 
 body {
     background-color: #F1F1F1;
-    font-family: 'Inter', sans-serif;
+    font-family: 'comfortaa', 'Inter', sans-serif;
 }

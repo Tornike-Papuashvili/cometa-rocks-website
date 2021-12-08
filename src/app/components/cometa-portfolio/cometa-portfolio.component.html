@@ -1,0 +1,31 @@
+<div class="section-portfolio">
+    <div class="header">
+        <h2>How does co.meta Work</h2>
+        <div class="separator"></div>
+        <p>co.meta is a web automation, ui testing tool to create organized
+            ui tests online
+            to check your project.<br>
+            co.meta continously tests functionality and performes visual regression tests with image comparison.
+            <br>This will take your development to the next level.
+        </p>
+        <p>Enjoy the screenshots ... or try out co.meta and convince yourself.
+            <a rel="noopener" href="https://cometa.amvara.de" target="_blank">co.meta trial</a>
+        </p>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="content" *ngFor="let screenshot of screenshots">
+            <div class="card">
+                <div class="screenshot">
+                    <img [src]="screenshot.image">
+                </div>
+                <div class="text">
+                    <h4>{{screenshot.title}}</h4>
+                    <p>{{screenshot.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,40 @@
+<div class="section-users">
+
+    <div class="header">
+        <h2>Cometa Feedback</h2>
+        <div class="separator"></div>
+        <p> Here is some feedback from people who already had some taste of cometa</p>
+    </div>
+    
+    <div class="content-wrapper">
+        <div class="logo"></div>
+        <div class="content">
+            <div class="title"><h1>What co.meta users say</h1></div>
+            <div class="testimonial" *ngFor="let testimonial of testimonials">
+                <span class="testimonial-quote">&quot;{{testimonial.quote}}</span>
+                <i> {{testimonial.text}}&quot; </i>
+                <p class="testimonial_from" style="font-family: 'Montserrat','Arial'; padding-top:20px">
+                    {{testimonial.form}}
+                    <br />{{testimonial.footer_text}}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="links">
+        <div class="link">
+            <div class="title"><a href="">Request early access to Co.meta</a></div>
+            <p>
+                The open beta has ended.
+                We invite you to request access before going public.
+                You have the exclusive opportunity to test and use co.meta without paying.
+                By doing so, you will be able to access our private repository and discussion channels on discord and telegram.
+            </p>      
+        </div>
+        <div class="link">
+            <div class="title"><a href="">Donate</a></div>
+            <p>Show that you understand where we are going. Express that you are more than interested ...</p>      
+        </div>
+    </div>
+
+</div>

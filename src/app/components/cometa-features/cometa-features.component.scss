@@ -1,0 +1,104 @@
+$heavy-orange: #E2B154;
+$lightgray: lightgray;
+$lightgreen: lightgreen;
+$lightblue: lightblue;
+$gray: gray;
+$white: #ffffff;
+$whitish: #f1f1f1;
+$blackish: #111111;
+$medium-gray: #aeabab;
+$p-fsize: .9em;
+$a-fsize: .9em;
+
+
+.section-features {
+    padding: 50px 10%;
+    background-color: $white;
+
+    .header {
+        padding-bottom: 50px;
+        width: 100%;
+        text-align: center;
+
+        h2 {
+            @media (min-width: 850px) { font-size: 2.5em; }
+            @media (min-width: 1200px) { font-size: 2em; }
+        }
+
+        .separator {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: $heavy-orange;
+            margin: 10px 0;
+            border: 5px solid white;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: 15px;
+                transform: translateY(-50%);
+                height: 1px;
+                width: 100px;
+                background-color: $heavy-orange;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 15px;
+                transform: translateY(-50%);
+                height: 1px;
+                width: 100px;
+                background-color: $heavy-orange;
+            }
+        }
+
+        p {
+            font-weight: bold;
+            padding: 5px 0;
+
+            a {
+                color: $heavy-orange;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .content-wrapper {
+        display: grid;
+        grid-template-columns: repeat(1fr);
+        grid-gap: 30px;
+
+        @media (min-width: 560px) { grid-template-columns: repeat(2,1fr); }
+        @media (min-width: 1200px) { grid-template-columns: repeat(3,1fr); }
+
+        .content {
+            .card {
+                display: flex;
+                justify-content: space-around;
+    
+    
+                .text {
+                    padding-bottom: 25px;
+                    padding-left: 10px;
+    
+                    h4 {
+                        padding: 10px 0;
+                        font-size: 1.3em;
+                        color: $heavy-orange;
+                        @media (min-width: 850px) { font-size: 1.5em; }
+                        @media (min-width: 1200px) { font-size: 2em; }
+                    }
+                    p {
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}

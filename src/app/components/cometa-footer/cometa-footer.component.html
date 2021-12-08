@@ -1,0 +1,51 @@
+<footer>
+
+    <div class="links-wrapper">
+        <div class="links" *ngFor="let link of links">
+            <div class="title">{{link.title}}</div>
+            <ul *ngFor="let content of link.content">
+                <li><a href="{{content.href}}">{{content.name}}</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="legal-info">
+
+        <div class="copyright">
+            <p>COMETA ROCKS - Software crafted with 💚 in Barcelona.</p>
+            <p>Founded on 01.06.2021 |
+                +34 717 102 603 |
+                +49 711 89467029 |
+                GV de les Corts Catalanes 636 Princ.
+                1B, 08007 Barcelona, Spain |
+                Tax number: ES-B06880405
+            </p>
+        </div>
+
+        <div class="social-net">
+            <a href="https://linkedin.com/company/cometa-rocks/">
+                <img src="assets/linkedin-icon.png">
+            </a>
+            <a href="https://twitter.com/cometa_rocks">
+                <img src="assets/twitter-icon.jpg">
+            </a>
+        </div>
+
+        <div class="keywords">
+            <p>Keywords that our users find usefull when searching:
+                web testing, automated software testing, no code,
+                low code, open source, web testing tools, rowser
+                automation, ui testing, automated web testing, 
+                gui testing tools, web macro, web ui testing, ui testing framework,
+                ui automation,automated ui testing, web automation,
+                website automation, usertesting, ser testing, 
+                testing usability, web usability, usability test, 
+                usability testing, online usability testing tools, 
+                usability testing software, remote user testing, 
+                website usability testing, mobile user testing
+            </p>
+        </div>
+
+    </div>
+
+</footer>

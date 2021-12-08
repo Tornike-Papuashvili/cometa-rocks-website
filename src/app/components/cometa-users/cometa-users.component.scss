@@ -1,0 +1,152 @@
+$heavy-orange: #E2B154;
+$lightgray: lightgray;
+$lightgreen: lightgreen;
+$lightblue: lightblue;
+$gray: gray;
+$white: #ffffff;
+$whitish: #f1f1f1;
+$blackish: #111111;
+$medium-gray: #aeabab;
+$p-fsize: .9em;
+$a-fsize: .9em;
+
+
+.section-users {
+    padding: 50px 10%;
+
+    .header {
+        padding-bottom: 50px;
+        width: 100%;
+        text-align: center;
+
+        h2 {
+            @media (min-width: 850px) { font-size: 2.5em; }
+            @media (min-width: 1200px) { font-size: 2em; }
+        }
+
+        .separator {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: $heavy-orange;
+            margin: 10px 0;
+            border: 5px solid white;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: 15px;
+                transform: translateY(-50%);
+                height: 1px;
+                width: 100px;
+                background-color: $heavy-orange;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 15px;
+                transform: translateY(-50%);
+                height: 1px;
+                width: 100px;
+                background-color: $heavy-orange;
+            }
+        }
+
+        p {
+            font-weight: bold;
+            padding: 5px 0;
+        }
+    }
+    
+    .content-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        @media (min-width: 650px) { align-items: center; }
+
+        .logo {
+            background: url("../../../assets/cometa.svg");
+            width: 50%;
+            height: 50vw;
+            filter: invert(1);
+            background-repeat: no-repeat;
+            background-position: -10VW -10VW;
+            background-size: cover;
+            z-index: -9999;
+            display: none;
+    
+            @media (min-width: 650px) { display: inline-block; }
+        }
+
+        .content {
+            width: 100%;
+    
+            @media (min-width: 650px) {  
+                width: 50%;
+            }
+    
+            .title {
+                h1 {
+                    font-size: 1.2em;
+                    padding: 10px 0;
+                    color: $heavy-orange; 
+    
+                    @media (min-width: 1200px) { font-size: 2em; }
+                }
+            }
+    
+            .testimonial {
+                border: 1px solid $heavy-orange;
+                padding: 10px;
+                margin: 2em 0;
+                border-radius: 1em;
+    
+                .testimonial-quote {
+                    font-size: 2em;
+                    @media (min-width: 1200px) { font-size: 5em; }
+                }
+    
+                i {
+                    font-size: 1.1em;
+    
+                    @media (min-width: 1200px) { 
+                        line-height: 2em;
+                    }
+                }
+            }
+        }
+    }
+
+    .links {
+        .link {
+            margin: 50px 0;
+
+            &:nth-child(2) {
+               .title a {
+                    color: #8BBEAC;
+                    border-bottom: 2px solid #8BBEAC;
+                }
+            }
+            
+            .title {
+                padding: 10px 0;
+                font-weight: bold;
+                a {
+                    color: $heavy-orange;
+                    font-size: 2em;
+                    text-decoration: none;
+                    border-bottom: 2px solid $heavy-orange;
+                }
+            }
+
+            p {
+                font-weight: bold;
+            }
+        }
+    }
+}

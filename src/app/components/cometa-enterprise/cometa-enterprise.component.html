@@ -1,0 +1,19 @@
+<div class="section-enterprise">
+
+    <div class="header">
+        <h2>co.meta For Enterprise</h2>
+        <div class="separator"></div>
+        <p>Time always means money. co.meta reduces test hours to minutes or seconds.</p>
+    </div>
+
+    <div class="content-wrapper">
+        <ul>
+            <li *ngFor="let caracteristic of caracteristics">
+                <img [src]="caracteristic.image">
+                <p>{{caracteristic.description}}</p>
+            </li>
+        </ul>
+    </div>
+    
+</div>
+

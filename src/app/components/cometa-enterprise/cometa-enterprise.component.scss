@@ -1,0 +1,93 @@
+$heavy-orange: #E2B154;
+$lightgray: lightgray;
+$lightgreen: lightgreen;
+$lightblue: lightblue;
+$gray: gray;
+$white: #ffffff;
+$whitish: #f1f1f1;
+$blackish: #111111;
+$medium-gray: #aeabab;
+$p-fsize: .9em;
+$a-fsize: .9em;
+
+.section-enterprise {
+    padding: 50px 10%;
+
+    .header {
+        padding-bottom: 50px;
+        width: 100%;
+        text-align: center;
+
+        h2 {
+            @media (min-width: 850px) { font-size: 2.5em; }
+            @media (min-width: 1200px) { font-size: 2em; }
+        }
+
+        .separator {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: $heavy-orange;
+            margin: 10px 0;
+            border: 5px solid white;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: 15px;
+                transform: translateY(-50%);
+                height: 1px;
+                width: 100px;
+                background-color: $heavy-orange;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 15px;
+                transform: translateY(-50%);
+                height: 1px;
+                width: 100px;
+                background-color: $heavy-orange;
+            }
+        }
+
+        p {
+            font-weight: bold;
+            padding: 5px 0;
+        }
+    }
+
+    .content-wrapper {
+        ul {
+            display: grid;
+            grid-gap: 30px;
+            grid-template-columns: repeat(1fr);
+            list-style-type: none;
+
+            @media (min-width: 750px) { grid-template-columns: repeat(2,1fr); }
+            @media (min-width: 1200px) { grid-template-columns: repeat(3,1fr); }
+
+            li {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                border-bottom: 1px solid $lightgray;
+
+                p {
+                    font-weight: bold;
+                    padding-left: 10px;
+                }
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+        }
+    }
+}

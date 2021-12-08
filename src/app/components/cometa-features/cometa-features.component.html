@@ -1,0 +1,29 @@
+<div class="section-features">
+    
+    <div class="header">
+        <h2>Cometa features</h2>
+        <div class="separator"></div>
+        <p>Don't break code. Don't break layout. Using cometa provides many benefits for your project.</p>
+        <p>
+            Being 100% open source and providing complete functionalities via
+            REST API makes integration of third party tools (
+            <a href="https://jmeter.apache.org/">jMeter</a>, 
+            <a href="https://www.jenkins.io/">Jenkins</a>, 
+            <a href="htstps://git-scm.com/">Git</a>, ...) evenmore easy.
+        </p>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="content" *ngFor="let feature of features">
+            <div class="card">
+                <div class="icon">
+                    <img [src]="feature.image">
+                </div>
+                <div class="text">
+                    <h4>{{feature.title}}</h4>
+                    <p>{{feature.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
