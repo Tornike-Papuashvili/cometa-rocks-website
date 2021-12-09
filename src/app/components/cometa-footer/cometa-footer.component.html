@@ -1,10 +1,9 @@
 <footer>
-
     <div class="links-wrapper">
         <div class="links" *ngFor="let link of links">
             <div class="title">{{link.title}}</div>
             <ul *ngFor="let content of link.content">
-                <li><a href="{{content.href}}">{{content.name}}</a></li>
+                <li><a target="_blank" href="{{content.href}}">{{content.name}}</a></li>
             </ul>
         </div>
     </div>
@@ -23,10 +22,10 @@
         </div>
 
         <div class="social-net">
-            <a href="https://linkedin.com/company/cometa-rocks/">
+            <a target="_blank" href="https://linkedin.com/company/cometa-rocks/">
                 <img src="assets/linkedin-icon.png">
             </a>
-            <a href="https://twitter.com/cometa_rocks">
+            <a target="_blank" href="https://twitter.com/cometa_rocks">
                 <img src="assets/twitter-icon.jpg">
             </a>
         </div>

@@ -23,7 +23,7 @@
 
     <div class="links">
         <div class="link">
-            <div class="title"><a href="">Request early access to Co.meta</a></div>
+            <div  class="title"><a target="_blank" href="https://ocagzojn33k.typeform.com/to/G2VgVbbB">Request early access to Co.meta</a></div>
             <p>
                 The open beta has ended.
                 We invite you to request access before going public.
@@ -32,8 +32,46 @@
             </p>      
         </div>
         <div class="link">
-            <div class="title"><a href="">Donate</a></div>
-            <p>Show that you understand where we are going. Express that you are more than interested ...</p>      
+            <div class="title" (click)="donate()"><a>Donate</a></div>
+            <p>Show that you understand where we are going. Express that you are more than interested ...</p>
+
+            <div class="donate-panel" *ngIf="donatePanelIsActive">
+                <p>Great to see your interest. Thank you so much. Let us know for what reason your are donating ...</p>
+                <form [formGroup]="donateForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <textarea type="text" formControlName="reason" class="form-control" placeholder="Donate reason..."></textarea>
+                        <div *ngIf="submitted && form['reason'].errors" class="invalid-feedback">
+                            <div *ngIf="form['reason'].errors['required']">name is required</div>
+                        </div>
+                        <div class="amount-buttons">
+                            <div>
+                                <p>Helper</p>
+                                <input (click)="setAmount(10)" type="button" value="10">   
+                            </div>
+                            <div>
+                                <p>Supporter</p>
+                                <input (click)="setAmount(29)" type="button" value="29">   
+                            </div>
+                            <div>
+                                <p>Lover</p>
+                                <input (click)="setAmount(490)" type="button" value="490">   
+                            </div>
+                            <div>
+                                <p>Angel</p>
+                                <input  (input)="setCustomeAmount($event)" type="number" placeholder="amount...">
+                            </div>
+                        </div>
+                        <div class="subscribe-time">
+                            <div>
+                                <input type="button" value="Monthly Donation">   
+                            </div>
+                            <div>
+                                <input type="button" value="Yearly Donation">   
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 

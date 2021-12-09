@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cometa-users',
@@ -6,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cometa-users.component.scss']
 })
 export class CometaUsersComponent implements OnInit {
+
+  donatePanelIsActive = false;
+  donateForm: FormGroup;
+  loading = false;
+  submitted = false;
 
   testimonials = [
     {
@@ -23,9 +29,47 @@ export class CometaUsersComponent implements OnInit {
 ];
 
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { 
+    this.donateForm = this.formBuilder.group({});
+  }
 
   ngOnInit(): void {
+    this.inicializeForm();
   }
+
+  donate() {
+    this.donatePanelIsActive = this.donatePanelIsActive ? false: true;
+  }
+
+  setAmount(amount: any) {
+    this.form['amount'] = amount;
+  }
+
+  setCustomeAmount(event: any) {
+    this.setAmount(event.target.value);
+  }
+
+  inicializeForm() {
+    this.donateForm = this.formBuilder.group({
+      reason: ['', Validators.required],
+      amount: ['', Validators.required],
+    });
+  }
+
+  get form() {
+    return this.donateForm.controls; 
+  }
+
+  onSubmit() {
+    this.submitted = true;
+
+    if (this.donateForm.invalid) {
+        return;
+    }
+
+    this.loading = true;
+    //todo logic for mail sending
+  }
+
 
 }
