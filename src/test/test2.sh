@@ -1,0 +1,16 @@
+curl 'https://stage.cometa.rocks/backend/createDonation/' \
+  -H 'Connection: keep-alive' \
+  -H 'sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H 'sec-ch-ua-mobile: ?1' \
+  -H 'User-Agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Mobile Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Android"' \
+  -H 'Origin: https://cometa.rocks' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Referer: https://cometa.rocks/' \
+  -H 'Accept-Language: es-ES,es;q=0.9,en;q=0.8' \
+  --data-raw '{"amount":10,"period":"month"}' \
+  --compressed

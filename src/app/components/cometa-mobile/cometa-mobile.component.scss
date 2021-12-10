@@ -6,6 +6,7 @@ $gray: gray;
 $white: #ffffff;
 $whitish: #f1f1f1;
 $blackish: #111111;
+$black: #000000;
 $medium-gray: #aeabab;
 $p-fsize: .9em;
 $a-fsize: .9em;
@@ -161,6 +162,15 @@ $a-fsize: .9em;
           }
         }
       }
+    }
+  }
+
+  &.isDark {
+    background-color: $black;
+    color: $whitish;
+
+    .mobile {
+      box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
     }
   }
 }

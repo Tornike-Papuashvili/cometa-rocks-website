@@ -1,4 +1,4 @@
-<header>
+<header [ngClass]="{'isDark': currentTheme == 'dark'}">
     <div class="cometa">
       <div class="menu">
         <mat-icon>menu</mat-icon>
@@ -21,7 +21,7 @@
       <div class="switcher">
         <div class="theme-switcher">
           <p>LIGHT</p>
-          <div class="switch"></div>
+          <div [ngClass]="{'isDark': currentTheme == 'dark'}"  (click)="switchTheme()" class="switch"></div>
           <p>DARK</p>
         </div>
         <div class="lang-switcher">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SwitcherService } from '../../cometa-services/shared/switcher.service';
 
 @Component({
   selector: 'app-cometa-footer',
@@ -6,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cometa-footer.component.scss']
 })
 export class CometaFooterComponent implements OnInit {
-
 
   links = [
     { 
@@ -43,10 +43,16 @@ export class CometaFooterComponent implements OnInit {
     }
 ];
 
+  currentTheme: any;
 
-  constructor() { }
+  constructor(private sw: SwitcherService) { }
 
   ngOnInit(): void {
+    this.setCurrentTheme();
+  }
+
+  setCurrentTheme() {
+    this.sw.getCurrentThemeObservable().subscribe( theme => this.currentTheme = theme );
   }
 
 }

@@ -1,4 +1,4 @@
-<footer>
+<footer [ngClass]="{'isDark': currentTheme == 'dark'}">
     <div class="links-wrapper">
         <div class="links" *ngFor="let link of links">
             <div class="title">{{link.title}}</div>

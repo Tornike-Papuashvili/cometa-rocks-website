@@ -161,53 +161,99 @@ $a-fsize: .9em;
                         margin: 10px 0;
                     }
 
-                    input,
-                    input[type=button],
-                    input[type=number] {
-                        border: 1px solid $heavy-orange;
-                        border-radius: 5px;
-                        font: inherit;
-                        cursor: pointer;
-                        outline: inherit;
-                        background: $blackish;
-                        color: $white;
-                        padding: 10px 35px;
-                        font-weight: bold;
-                        outline: #8BBEAC;
+                    .form-group {
+                        .amount-buttons {
+                            width: 100%;
+                            display: grid;
+                            grid-template-columns: repeat(2,1fr);
+                            place-items: start;
+                            grid-gap: 20px;
+    
+                            @media (min-width: 750px) { 
+                                grid-template-columns: repeat(4,1fr);
+                            }
+    
+                            @media (min-width: 1200px) { 
+                                width: 50%;
+                            }
+    
+                            div {
+                                margin-right: 10px;
+    
+                                input {
+                                    width: 100px;
+                                    height: 40px;
+                                    border: 1px solid $heavy-orange;
+                                    border-radius: 5px;
+                                    font: inherit;
+                                    cursor: pointer;
+                                    outline: inherit;
+                                    background: $blackish;
+                                    color: $white;
+                                    font-weight: bold;
+                                    outline: #8BBEAC;
 
-                        &:hover,
-                        &:focus {
-                            background-color: $heavy-orange;
+                                    @media (min-width: 450px) { 
+                                        width: 140px;
+                                    }
+            
+                                    &:hover {
+                                        background-color: $heavy-orange;
+                                    }
+    
+                                    &.isSet {
+                                        background-color: $heavy-orange;
+                                    }
+                                }
+                            }
                         }
+    
                     }
-
-                    .amount-buttons {
-                        width: 100%;
-                        display: grid;
-                        grid-template-columns: repeat(2,1fr);
-                        place-items: start;
-                        grid-gap: 20px;
-
-                        @media (min-width: 750px) { 
-                            grid-template-columns: repeat(4,1fr);
-                        }
-
-                        @media (min-width: 1200px) { 
-                            width: 50%;
-                        }
-
-                        div {
-                            margin-right: 10px;
-                        }
-                    }
-
+                    
                     .subscribe-time {
+                        font-family: 'comfortaa';
                         padding: 30px 0;
                         display: flex;
                         flex-direction: column;
-                        justify-content: space-around;
+                        justify-content: start;
+
+
+                        @media (min-width: 350px) { 
+                            flex-direction: row;
+                        }
+
+                        button {
+                            font-family: 'comfortaa', 'Inter', sans-serif;
+                            width: 100%;
+                            height: 40px;
+                            background: $blackish;
+                            color: $white;
+                            margin: 10px 0;
+                            margin-right: 10px;
+                            outline-color: $heavy-orange;
+
+                            &:hover {
+                                background-color: $heavy-orange;
+                            }
+
+                            @media (min-width: 350px) { 
+                                width: 100px;
+                            }
+                        }
                     }
                 }
+            }
+        }
+    }
+
+    &.isDark {
+        background-color: $blackish;
+        color: $whitish;
+
+        .content-wrapper { 
+            .logo {
+                z-index: 1;
+                filter: invert(0);
             }
         }
     }

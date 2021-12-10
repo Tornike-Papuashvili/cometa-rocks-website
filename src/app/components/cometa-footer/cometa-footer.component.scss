@@ -6,6 +6,7 @@ $gray: gray;
 $white: #ffffff;
 $whitish: #f1f1f1;
 $blackish: #111111;
+$lightblack: #343333;
 $medium-gray: #aeabab;
 $p-fsize: .9em;
 $a-fsize: .9em;
@@ -14,7 +15,7 @@ $a-fsize: .9em;
 
 footer {
     padding: 50px 10%;
-    background-color: #343333;
+    background-color: $lightblack;
     font-weight: bold;
     color: $whitish;
     
@@ -76,5 +77,10 @@ footer {
                 padding: 5px 0;
             }
         }
+    }
+
+    &.isDark {
+        background-color: $blackish;
+        color: $whitish;
     }
 }

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { loadStripe } from '@stripe/stripe-js';
+import { environment } from '../../../environments/environment';
+import { SwitcherService } from '../../cometa-services/shared/switcher.service';
 
 @Component({
   selector: 'app-cometa-users',
@@ -11,7 +15,7 @@ export class CometaUsersComponent implements OnInit {
   donatePanelIsActive = false;
   donateForm: FormGroup;
   loading = false;
-  submitted = false;
+  currentTheme: any;
 
   testimonials = [
     {
@@ -29,30 +33,40 @@ export class CometaUsersComponent implements OnInit {
 ];
 
 
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private sw: SwitcherService) { 
     this.donateForm = this.formBuilder.group({});
   }
 
   ngOnInit(): void {
     this.inicializeForm();
+    this.setCurrentTheme();
   }
 
-  donate() {
+  setCurrentTheme() {
+    this.sw.getCurrentThemeObservable().subscribe( theme => this.currentTheme = theme );
+  }
+
+  activateDonatePanel() {
     this.donatePanelIsActive = this.donatePanelIsActive ? false: true;
   }
 
   setAmount(amount: any) {
-    this.form['amount'] = amount;
+    this.form['amount'].setValue(amount);
   }
 
   setCustomeAmount(event: any) {
     this.setAmount(event.target.value);
   }
 
+  setPeriod(period: any) {
+    this.form['period'].setValue(period);
+  }
+
   inicializeForm() {
     this.donateForm = this.formBuilder.group({
-      reason: ['', Validators.required],
-      amount: ['', Validators.required],
+      reason: [''],
+      amount: [''],
+      period: ['']
     });
   }
 
@@ -60,16 +74,27 @@ export class CometaUsersComponent implements OnInit {
     return this.donateForm.controls; 
   }
 
-  onSubmit() {
-    this.submitted = true;
-
-    if (this.donateForm.invalid) {
-        return;
-    }
-
+  async onSubmit(period: any) {
+    this.setPeriod(period);
+    
     this.loading = true;
-    //todo logic for mail sending
+
+    const apiURL = 'https://stage.cometa.rocks/backend/createDonation/';
+    const stripe = await loadStripe(environment.stripe_key);
+
+    await this.http.post(apiURL, { amount: this.form['amount'].value, period: this.form['period'].value })
+    .subscribe(
+      (res: any) => {
+        stripe?.redirectToCheckout({sessionId: res.sessionId})
+        this.loading = false;
+      },
+      (err: any) => {
+        console.log('HTTP Error', err)
+        this.loading = false;
+      }
+    );
   }
+
 
 
 }

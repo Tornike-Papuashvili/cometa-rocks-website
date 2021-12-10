@@ -153,4 +153,13 @@ $a-fsize: .9em;
             }  
         }
     }
+
+    &.isDark {
+      background-color: $blackish;
+      color: $whitish;
+
+      .tablet {
+        box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+      }
+    }
 }

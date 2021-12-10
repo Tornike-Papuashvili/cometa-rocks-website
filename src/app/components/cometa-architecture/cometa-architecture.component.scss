@@ -6,6 +6,7 @@ $gray: gray;
 $white: #ffffff;
 $whitish: #f1f1f1;
 $blackish: #111111;
+$black: black;
 $medium-gray: #aeabab;
 $p-fsize: .9em;
 $a-fsize: .9em;
@@ -98,5 +99,10 @@ $a-fsize: .9em;
                 }
             }
         } 
+    }
+
+    &.isDark {
+        background-color: $black;
+        color: $whitish;
     }
 }

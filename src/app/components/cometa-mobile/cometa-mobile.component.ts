@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SwitcherService } from '../../cometa-services/shared/switcher.service';
 
 @Component({
   selector: 'app-cometa-mobile',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CometaMobileComponent implements OnInit {
 
-  constructor() { }
+  currentTheme: any;
+
+  constructor(private sw: SwitcherService) { }
 
   ngOnInit(): void {
+    this.setCurrentTheme();
   }
+
+
+  setCurrentTheme() {
+    this.sw.getCurrentThemeObservable().subscribe( theme => this.currentTheme = theme );
+  }
+
 
 }

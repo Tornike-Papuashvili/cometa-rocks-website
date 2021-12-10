@@ -1,4 +1,4 @@
-<div class="section-users">
+<div [ngClass]="{'isDark': currentTheme == 'dark'}" class="section-users">
 
     <div class="header">
         <h2>Cometa Feedback</h2>
@@ -32,42 +32,45 @@
             </p>      
         </div>
         <div class="link">
-            <div class="title" (click)="donate()"><a>Donate</a></div>
+            <div class="title" (click)="activateDonatePanel()"><a>Donate</a></div>
             <p>Show that you understand where we are going. Express that you are more than interested ...</p>
 
             <div class="donate-panel" *ngIf="donatePanelIsActive">
                 <p>Great to see your interest. Thank you so much. Let us know for what reason your are donating ...</p>
-                <form [formGroup]="donateForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="donateForm">
                     <div class="form-group">
                         <textarea type="text" formControlName="reason" class="form-control" placeholder="Donate reason..."></textarea>
-                        <div *ngIf="submitted && form['reason'].errors" class="invalid-feedback">
-                            <div *ngIf="form['reason'].errors['required']">name is required</div>
-                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="amount-buttons">
                             <div>
                                 <p>Helper</p>
-                                <input (click)="setAmount(10)" type="button" value="10">   
+                                <input [ngClass]="{'isSet': form['amount'].value === '10'}" (click)="setAmount(10)" type="button" value="10">   
                             </div>
                             <div>
                                 <p>Supporter</p>
-                                <input (click)="setAmount(29)" type="button" value="29">   
+                                <input [ngClass]="{'isSet': form['amount'].value === '29'}" (click)="setAmount(29)" type="button" value="29">   
                             </div>
                             <div>
                                 <p>Lover</p>
-                                <input (click)="setAmount(490)" type="button" value="490">   
+                                <input [ngClass]="{'isSet': form['amount'].value === '490'}" (click)="setAmount(490)" type="button" value="490">   
                             </div>
                             <div>
                                 <p>Angel</p>
-                                <input  (input)="setCustomeAmount($event)" type="number" placeholder="amount...">
+                                <input style="padding-left: 10px" [ngClass]="{'isSet': form['amount'].value != '490' 
+                                                         && form['amount'].value != '29' 
+                                                         && form['amount'].value != '10'
+                                                         && form['amount'].value != '' }" 
+                                                        (input)="setCustomeAmount($event)" 
+                                                        type="number" 
+                                                        placeholder="custome">
                             </div>
                         </div>
+                    </div>
+                    <div *ngIf="form['amount'].value > 0" class="form-group">
                         <div class="subscribe-time">
-                            <div>
-                                <input type="button" value="Monthly Donation">   
-                            </div>
-                            <div>
-                                <input type="button" value="Yearly Donation">   
-                            </div>
+                            <button [disabled]="loading" (click)="onSubmit('year')">yearly</button>
+                            <button [disabled]="loading" (click)="onSubmit('month')">monthly</button>
                         </div>
                     </div>
                 </form>

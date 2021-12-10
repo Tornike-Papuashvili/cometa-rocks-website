@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SwitcherService } from '../../cometa-services/shared/switcher.service';
 
 @Component({
   selector: 'app-cometa-contact-us',
@@ -8,18 +9,23 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CometaContactUsComponent implements OnInit {
 
+  currentTheme: any;
   contactForm: FormGroup;
   loading = false;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private sw: SwitcherService) {
     this.contactForm = this.formBuilder.group({});
   }
 
   ngOnInit() {
     this.inicializeForm();
+    this.setCurrentTheme();
   }
 
+  setCurrentTheme() {
+    this.sw.getCurrentThemeObservable().subscribe( theme => this.currentTheme = theme );
+  }
 
   inicializeForm() {
     this.contactForm = this.formBuilder.group({
