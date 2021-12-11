@@ -1,10 +1,10 @@
 <div [ngClass]="{'isDark': currentTheme == 'dark'}" class="section-features">
     
     <div class="header">
-        <h2>Cometa features</h2>
+        <h2 data-aos="fade-up">Cometa features</h2>
         <div class="separator"></div>
-        <p>Don't break code. Don't break layout. Using cometa provides many benefits for your project.</p>
-        <p>
+        <p data-aos="fade-up">Don't break code. Don't break layout. Using cometa provides many benefits for your project.</p>
+        <p data-aos="fade-up">
             Being 100% open source and providing complete functionalities via
             REST API makes integration of third party tools (
             <a target="_blank" href="https://jmeter.apache.org/">jMeter</a>, 
@@ -15,7 +15,7 @@
 
     <div class="content-wrapper">
         <div class="content" *ngFor="let feature of features">
-            <div class="card">
+            <div data-aos="fade-up" class="card">
                 <div class="icon">
                     <img [src]="feature.image">
                 </div>

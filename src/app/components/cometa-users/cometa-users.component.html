@@ -1,16 +1,16 @@
 <div [ngClass]="{'isDark': currentTheme == 'dark'}" class="section-users">
 
     <div class="header">
-        <h2>Cometa Feedback</h2>
+        <h2 data-aos="fade-up">Cometa Feedback</h2>
         <div class="separator"></div>
-        <p> Here is some feedback from people who already had some taste of cometa</p>
+        <p data-aos="fade-up"> Here is some feedback from people who already had some taste of cometa</p>
     </div>
     
     <div class="content-wrapper">
-        <div class="logo"></div>
+        <div data-aos="fade-right" class="logo"></div>
         <div class="content">
-            <div class="title"><h1>What co.meta users say</h1></div>
-            <div class="testimonial" *ngFor="let testimonial of testimonials">
+            <div class="title"><h1 data-aos="fade-left">What co.meta users say</h1></div>
+            <div data-aos="fade-left" class="testimonial" *ngFor="let testimonial of testimonials">
                 <span class="testimonial-quote">&quot;{{testimonial.quote}}</span>
                 <i> {{testimonial.text}}&quot; </i>
                 <p class="testimonial_from" style="font-family: 'Montserrat','Arial'; padding-top:20px">
@@ -23,8 +23,8 @@
 
     <div class="links">
         <div class="link">
-            <div  class="title"><a target="_blank" href="https://ocagzojn33k.typeform.com/to/G2VgVbbB">Request early access to Co.meta</a></div>
-            <p>
+            <div data-aos="fade-right" class="title"><a target="_blank" href="https://ocagzojn33k.typeform.com/to/G2VgVbbB">Request early access to Co.meta</a></div>
+            <p data-aos="fade-right">
                 The open beta has ended.
                 We invite you to request access before going public.
                 You have the exclusive opportunity to test and use co.meta without paying.
@@ -32,8 +32,8 @@
             </p>      
         </div>
         <div class="link">
-            <div class="title" (click)="activateDonatePanel()"><a>Donate</a></div>
-            <p>Show that you understand where we are going. Express that you are more than interested ...</p>
+            <div data-aos="fade-right" class="title" (click)="activateDonatePanel()"><a>Donate</a></div>
+            <p data-aos="fade-right">Show that you understand where we are going. Express that you are more than interested ...</p>
 
             <div class="donate-panel" *ngIf="donatePanelIsActive">
                 <p>Great to see your interest. Thank you so much. Let us know for what reason your are donating ...</p>

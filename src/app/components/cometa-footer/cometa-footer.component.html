@@ -1,8 +1,8 @@
 <footer [ngClass]="{'isDark': currentTheme == 'dark'}">
     <div class="links-wrapper">
         <div class="links" *ngFor="let link of links">
-            <div class="title">{{link.title}}</div>
-            <ul *ngFor="let content of link.content">
+            <div data-aos="fade-up" class="title">{{link.title}}</div>
+            <ul data-aos="fade-up" *ngFor="let content of link.content">
                 <li><a target="_blank" href="{{content.href}}">{{content.name}}</a></li>
             </ul>
         </div>
@@ -11,8 +11,8 @@
     <div class="legal-info">
 
         <div class="copyright">
-            <p>COMETA ROCKS - Software crafted with 💚 in Barcelona.</p>
-            <p>Founded on 01.06.2021 |
+            <p data-aos="fade-up">COMETA ROCKS - Software crafted with 💚 in Barcelona.</p>
+            <p data-aos="fade-up">Founded on 01.06.2021 |
                 +34 717 102 603 |
                 +49 711 89467029 |
                 GV de les Corts Catalanes 636 Princ.
@@ -21,7 +21,7 @@
             </p>
         </div>
 
-        <div class="social-net">
+        <div data-aos="fade-up" class="social-net">
             <a target="_blank" href="https://linkedin.com/company/cometa-rocks/">
                 <img src="assets/linkedin-icon.png">
             </a>
@@ -30,7 +30,7 @@
             </a>
         </div>
 
-        <div class="keywords">
+        <div data-aos="fade-up" class="keywords">
             <p>Keywords that our users find usefull when searching:
                 web testing, automated software testing, no code,
                 low code, open source, web testing tools, rowser

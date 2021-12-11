@@ -126,5 +126,11 @@ $a-fsize: .9em;
     &.isDark {
         background-color: $blackish;
         color: $whitish;
+
+        .card {
+            p {
+                color: $blackish;
+            }
+        }
     }
 }
