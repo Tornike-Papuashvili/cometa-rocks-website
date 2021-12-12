@@ -1,16 +1,29 @@
 <div [ngClass]="{'isDark': currentTheme == 'dark'}" class="section-enterprise">
 
     <div class="header">
-        <h2 data-aos="fade-up">co.meta For Enterprise</h2>
+        <h2 *ngIf="currentLang == 'en'" data-aos="fade-up">co.meta For Enterprise</h2>
+        <h2 *ngIf="currentLang == 'ca'" data-aos="fade-up">co.meta per a Enterprise</h2>
+
         <div class="separator"></div>
-        <p data-aos="fade-up">Time always means money. co.meta reduces test hours to minutes or seconds.</p>
+
+        <p *ngIf="currentLang == 'en'" data-aos="fade-up">Time always means money. co.meta reduces test hours to minutes or seconds.</p>
+        <p *ngIf="currentLang == 'ca'" data-aos="fade-up">El temps sempre significa diners. co.meta redueix les hores de prova a minuts o segons.</p>
     </div>
 
-    <div class="content-wrapper">
+    <div *ngIf="currentLang == 'en'" class="content-wrapper">
         <ul>
-            <li data-aos="fade-up" *ngFor="let caracteristic of caracteristics">
-                <img [src]="caracteristic.image">
-                <p>{{caracteristic.description}}</p>
+            <li data-aos="fade-up" *ngFor="let ch of characteristics.en">
+                <img [src]="ch.image">
+                <p>{{ch.description}}</p>
+            </li>
+        </ul>
+    </div>
+
+    <div *ngIf="currentLang == 'ca'" class="content-wrapper">
+        <ul>
+            <li data-aos="fade-up" *ngFor="let ch of characteristics.ca">
+                <img [src]="ch.image">
+                <p>{{ch.description}}</p>
             </li>
         </ul>
     </div>

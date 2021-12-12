@@ -1,16 +1,28 @@
 <div [ngClass]="{'isDark': currentTheme == 'dark'}" class="section-laptop">
     <div class="text">
-      <h1 data-aos="fade-up" data-aos-delay="100">
-        Functional and Visual Regression Testing with excellence
-      </h1>
-      <h2 data-aos="fade-up" data-aos-delay="300">Don't break code. Don't break layout.</h2>
-      <h2 data-aos="fade-up" data-aos-delay="500">Using cometa provides many benefits for your project.</h2>
-      <h4 data-aos="fade-up" data-aos-delay="700">Automation of human actions on websites made easy.
+
+      <h1 *ngIf="currentLang == 'en'" data-aos="fade-up" data-aos-delay="100"> Functional and Visual Regression Testing with excellence </h1>
+      <h1 *ngIf="currentLang == 'ca'" data-aos="fade-up" data-aos-delay="100"> Proves de regressió funcional i visual amb excel·lència </h1>
+
+      <h2 *ngIf="currentLang == 'en'" data-aos="fade-up" data-aos-delay="300">Don't break code. Don't break layout.</h2>
+      <h2 *ngIf="currentLang == 'ca'" data-aos="fade-up" data-aos-delay="300">No trencar el codi. No trenqueu el disseny.</h2>
+
+      <h2 *ngIf="currentLang == 'en'" data-aos="fade-up" data-aos-delay="500">Using cometa provides many benefits for your project.</h2>
+      <h2 *ngIf="currentLang == 'ca'"data-aos="fade-up" data-aos-delay="500">L'ús de cometa ofereix molts avantatges per al vostre projecte.</h2>
+
+      <h4 *ngIf="currentLang == 'en'" data-aos="fade-up" data-aos-delay="700">Automation of human actions on websites made easy.
           100% Open source made with ♥ in Barcelona.
           Visual comparison with screenshots!
           Easy UI testing on over 2000 devices.
           REST API integrates easy and smooth.
           Now that you know it - there are no more excuses left.</h4>
+      <h4 *ngIf="currentLang == 'ca'" data-aos="fade-up" data-aos-delay="700">
+        L'automatització de les accions humanes als llocs web és fàcil.
+        100% codi obert fet amb ♥ a Barcelona.
+        Comparació visual amb captures de pantalla!
+        Proves fàcils de la interfície d'usuari en més de 2000 dispositius.
+        L'API REST s'integra de manera fàcil i fluida.
+        Ara que ho saps, ja no queden excuses.</h4>
     </div>
     <div class="laptop">
       <div class="output">

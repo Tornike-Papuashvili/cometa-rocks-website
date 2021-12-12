@@ -1,23 +1,37 @@
 <div [ngClass]="{'isDark': currentTheme == 'dark'}" class="section-portfolio">
     <div class="header">
-        <h2 data-aos="fade-up">How does co.meta Work</h2>
+        <h2 *ngIf="currentLang == 'en'" data-aos="fade-up">How does co.meta Work</h2>
+        <h2 *ngIf="currentLang == 'ca'" data-aos="fade-up">Com funciona co.meta</h2>
+
         <div class="separator"></div>
-        <p data-aos="fade-up">co.meta is a web automation, ui testing tool to create organized
+
+        <p *ngIf="currentLang == 'en'" data-aos="fade-up">co.meta is a web automation, ui testing tool to create organized
             ui tests online
             to check your project.<br>
             co.meta continously tests functionality and performes visual regression tests with image comparison.
             <br>This will take your development to the next level.
         </p>
-        <p data-aos="fade-up">Enjoy the screenshots ... or try out co.meta and convince yourself.
+        <p *ngIf="currentLang == 'ca'" data-aos="fade-up">
+            co.meta és una eina de prova d'interfície d'usuari d'automatització web per crear organitzats
+            proves d'interfície d'usuari en línia
+            per comprovar el teu projecte.<br>
+            co.meta prova contínuament la funcionalitat i realitza proves de regressió visual amb comparació d'imatges.
+            <br>Això portarà el vostre desenvolupament al següent nivell.
+        </p>
+
+        <p *ngIf="currentLang == 'en'" data-aos="fade-up">Enjoy the screenshots ... or try out co.meta and convince yourself.
+            <a rel="noopener" href="https://cometa.amvara.de" target="_blank">co.meta trial</a>
+        </p>
+        <p *ngIf="currentLang == 'ca'" data-aos="fade-up">Gaudeix de les captures de pantalla... o prova co.meta i convence't.
             <a rel="noopener" href="https://cometa.amvara.de" target="_blank">co.meta trial</a>
         </p>
     </div>
 
-    <div class="content-wrapper">
-        <div data-aos="fade-up" class="content" *ngFor="let screenshot of screenshots">
+    <div *ngIf="currentLang == 'en'" class="content-wrapper">
+        <div data-aos="fade-up" class="content" *ngFor="let screenshot of screenshots.en">
             <div class="card">
                 <div class="screenshot">
-                    <img [src]="screenshot.image">
+                    <img (click)="openMagnifier($event)" [src]="screenshot.image">
                 </div>
                 <div class="text">
                     <h4>{{screenshot.title}}</h4>
@@ -26,6 +40,23 @@
             </div>
         </div>
     </div>
-</div>
 
+    <div *ngIf="currentLang == 'ca'" class="content-wrapper">
+        <div data-aos="fade-up" class="content" *ngFor="let screenshot of screenshots.ca">
+            <div class="card">
+                <div class="screenshot">
+                    <img (click)="openMagnifier($event)" [src]="screenshot.image">
+                </div>
+                <div class="text">
+                    <h4>{{screenshot.title}}</h4>
+                    <p>{{screenshot.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div [ngClass]="{'isActive': img_magnifier_isActive }" class="image-magnifier" (click)="closeMagnifier()">
+    <img class="magnified_img" (click)="preventEventBubbling($event)" src="">
+</div>
 

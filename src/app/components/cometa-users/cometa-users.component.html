@@ -2,15 +2,20 @@
 
     <div class="header">
         <h2 data-aos="fade-up">Cometa Feedback</h2>
+
         <div class="separator"></div>
-        <p data-aos="fade-up"> Here is some feedback from people who already had some taste of cometa</p>
+
+        <p *ngIf="currentLang == 'en'" data-aos="fade-up"> Here is some feedback from people who already had some taste of cometa</p>
+        <p *ngIf="currentLang == 'ca'" data-aos="fade-up"> Aquí teniu alguns comentaris de gent que ja tenia un gust de cometa</p>
     </div>
     
     <div class="content-wrapper">
+
         <div data-aos="fade-right" class="logo"></div>
-        <div class="content">
+
+        <div *ngIf="currentLang == 'en'" class="content">
             <div class="title"><h1 data-aos="fade-left">What co.meta users say</h1></div>
-            <div data-aos="fade-left" class="testimonial" *ngFor="let testimonial of testimonials">
+            <div data-aos="fade-left" class="testimonial" *ngFor="let testimonial of testimonials.en">
                 <span class="testimonial-quote">&quot;{{testimonial.quote}}</span>
                 <i> {{testimonial.text}}&quot; </i>
                 <p class="testimonial_from" style="font-family: 'Montserrat','Arial'; padding-top:20px">
@@ -19,24 +24,51 @@
                 </p>
             </div>
         </div>
+
+        <div *ngIf="currentLang == 'ca'" class="content">
+            <div class="title"><h1 data-aos="fade-left">What co.meta users say</h1></div>
+            <div data-aos="fade-left" class="testimonial" *ngFor="let testimonial of testimonials.ca">
+                <span class="testimonial-quote">&quot;{{testimonial.quote}}</span>
+                <i> {{testimonial.text}}&quot; </i>
+                <p class="testimonial_from" style="font-family: 'Montserrat','Arial'; padding-top:20px">
+                    {{testimonial.form}}
+                    <br />{{testimonial.footer_text}}
+                </p>
+            </div>
+        </div>
+
     </div>
 
     <div class="links">
         <div class="link">
-            <div data-aos="fade-right" class="title"><a target="_blank" href="https://ocagzojn33k.typeform.com/to/G2VgVbbB">Request early access to Co.meta</a></div>
-            <p data-aos="fade-right">
+            <div *ngIf="currentLang == 'en'" data-aos="fade-right" class="title"><a target="_blank" href="https://ocagzojn33k.typeform.com/to/G2VgVbbB">Request early access to Co.meta</a></div>
+            <div *ngIf="currentLang == 'ca'" data-aos="fade-right" class="title"><a target="_blank" href="https://ocagzojn33k.typeform.com/to/G2VgVbbB">Sol·liciteu accés anticipat a Co.meta</a></div>
+
+            <p *ngIf="currentLang == 'en'" data-aos="fade-right">
                 The open beta has ended.
                 We invite you to request access before going public.
                 You have the exclusive opportunity to test and use co.meta without paying.
                 By doing so, you will be able to access our private repository and discussion channels on discord and telegram.
+            </p>
+            <p *ngIf="currentLang == 'ca'" data-aos="fade-right">
+                La versió beta oberta ha finalitzat. Us convidem a sol·licitar-ne l'accés abans
+                del llançament a tot el públic. Teniu l’oportunitat exclusiva de provar i
+                utilitzar co.meta sense pagar. En fer-ho, podreu accedir al nostre repositori
+                privat i als canals de discussió de Discord i Telegram.
             </p>      
         </div>
+
         <div class="link">
-            <div data-aos="fade-right" class="title" (click)="activateDonatePanel()"><a>Donate</a></div>
-            <p data-aos="fade-right">Show that you understand where we are going. Express that you are more than interested ...</p>
+            <div *ngIf="currentLang == 'en'" data-aos="fade-right" class="title" (click)="activateDonatePanel()"><a>Donate</a></div>
+            <div *ngIf="currentLang == 'ca'" data-aos="fade-right" class="title" (click)="activateDonatePanel()"><a>Donar</a></div>
+
+            <p *ngIf="currentLang == 'en'" data-aos="fade-right">Show that you understand where we are going. Express that you are more than interested ...</p>
+            <p *ngIf="currentLang == 'ca'" data-aos="fade-right">Demostra que entens cap a on anem. Expressa que estàs més que interessat...</p>
 
             <div class="donate-panel" *ngIf="donatePanelIsActive">
-                <p>Great to see your interest. Thank you so much. Let us know for what reason your are donating ...</p>
+                <p *ngIf="currentLang == 'en'">Great to see your interest. Thank you so much. Let us know for what reason your are donating ...</p>
+                <p *ngIf="currentLang == 'ca'">Genial veure el teu interès. Moltes gràcies. Feu-nos saber per quin motiu esteu donant...</p>
+                
                 <form [formGroup]="donateForm">
                     <div class="form-group">
                         <textarea type="text" formControlName="reason" class="form-control" placeholder="Donate reason..."></textarea>
@@ -44,19 +76,23 @@
                     <div class="form-group">
                         <div class="amount-buttons">
                             <div>
-                                <p>Helper</p>
+                                <p *ngIf="currentLang == 'en'">Helper</p>
+                                <p *ngIf="currentLang == 'ca'">Ajudant</p>
                                 <input [ngClass]="{'isSet': form['amount'].value === '10'}" (click)="setAmount(10)" type="button" value="10">   
                             </div>
                             <div>
-                                <p>Supporter</p>
+                                <p *ngIf="currentLang == 'en'">Supporter</p>
+                                <p *ngIf="currentLang == 'ca'">Partidari</p>
                                 <input [ngClass]="{'isSet': form['amount'].value === '29'}" (click)="setAmount(29)" type="button" value="29">   
                             </div>
                             <div>
-                                <p>Lover</p>
+                                <p *ngIf="currentLang == 'en'">Lover</p>
+                                <p *ngIf="currentLang == 'ca'">Amant</p>
                                 <input [ngClass]="{'isSet': form['amount'].value === '490'}" (click)="setAmount(490)" type="button" value="490">   
                             </div>
                             <div>
-                                <p>Angel</p>
+                                <p *ngIf="currentLang == 'en'">Angel</p>
+                                <p *ngIf="currentLang == 'ca'">Àngel</p>
                                 <input style="padding-left: 10px" [ngClass]="{'isSet': form['amount'].value != '490' 
                                                          && form['amount'].value != '29' 
                                                          && form['amount'].value != '10'
@@ -69,8 +105,11 @@
                     </div>
                     <div *ngIf="form['amount'].value > 0" class="form-group">
                         <div class="subscribe-time">
-                            <button [disabled]="loading" (click)="onSubmit('year')">yearly</button>
-                            <button [disabled]="loading" (click)="onSubmit('month')">monthly</button>
+                            <button *ngIf="currentLang == 'en'" [disabled]="loading" (click)="onSubmit('year')">yearly</button>
+                            <button *ngIf="currentLang == 'ca'" [disabled]="loading" (click)="onSubmit('year')">anualment</button>
+
+                            <button *ngIf="currentLang == 'en'" [disabled]="loading" (click)="onSubmit('month')">monthly</button>
+                            <button *ngIf="currentLang == 'ca'" [disabled]="loading" (click)="onSubmit('month')">mensual</button>
                         </div>
                     </div>
                 </form>

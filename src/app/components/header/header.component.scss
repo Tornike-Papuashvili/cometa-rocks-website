@@ -25,6 +25,7 @@ header {
         align-items: center;
         
         .menu {
+            display: none;
             margin: 0 1em;
             
             mat-icon {
@@ -33,7 +34,8 @@ header {
             }
         }
 
-        .logo {    
+        .logo {
+            margin-left: .5em;    
             line-height: 30px;
 
             span {
@@ -81,8 +83,12 @@ header {
     .theme-switcher p,
     .lang-switcher p {
         font-size: $p-fsize;
-        font-weight: bold;
         margin: .5em 1em;
+
+        &.isActive {
+            font-weight: bold;
+            border-bottom: 1px solid $heavy-orange;
+        }
     }
 
     .lang-switcher {

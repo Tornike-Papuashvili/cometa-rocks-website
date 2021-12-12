@@ -32,16 +32,18 @@ export class CometaArchitectureComponent implements OnInit {
 ];
 
   currentTheme: any;
+  currentLang: any;
 
   constructor(private sw: SwitcherService) { }
 
   ngOnInit(): void {
-    this.setCurrentTheme();
+    this.applyCurrentLayoutSettings();
   }
 
 
-  setCurrentTheme() {
-    this.sw.getCurrentThemeObservable().subscribe( theme => this.currentTheme = theme );
+  applyCurrentLayoutSettings() {
+    this.sw.getCurrentThemeObservable().subscribe( (theme: any) => this.currentTheme = theme );
+    this.sw.getCurrentLangObservable().subscribe( (lang: any) => this.currentLang = lang );
   }
 
 

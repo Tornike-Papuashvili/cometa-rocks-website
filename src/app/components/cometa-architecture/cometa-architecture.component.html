@@ -1,11 +1,18 @@
 <div [ngClass]="{'isDark': currentTheme == 'dark'}" class="section-architecture">
 
     <div class="header">
-        <h2 data-aos="fade-up">Architecture</h2>
+        <h2 *ngIf="currentLang == 'en'" data-aos="fade-up">Architecture</h2>
+        <h2 *ngIf="currentLang == 'ca'" data-aos="fade-up">Arquitectura</h2>
+
         <div class="separator"></div>
-        <p data-aos="fade-up"> co.meta has been developed with 100% open source tools.
+
+        <p *ngIf="currentLang == 'en'" data-aos="fade-up"> co.meta has been developed with 100% open source tools.
             Scales 100%. Can be used on-premises, on desktop or on cloud. co.meta is unicode compliant.
             The co.meta REST API integrates easily with continous testing solutions as seen in 
+            <a target="_blank" href="https://about.gitlab.com/">gitlab</a>. </p>
+        <p *ngIf="currentLang == 'ca'" data-aos="fade-up"> co.meta s'ha desenvolupat amb eines 100% de codi obert.
+            Escales 100%. Es pot utilitzar localment, a l'escriptori o al núvol. co.meta és compatible amb Unicode.
+            L'API REST de co.meta s'integra fàcilment amb solucions de proves contínues tal com es veu a
             <a target="_blank" href="https://about.gitlab.com/">gitlab</a>. </p>
     </div>
 

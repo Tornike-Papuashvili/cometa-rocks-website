@@ -8,16 +8,17 @@ import { SwitcherService } from '../../cometa-services/shared/switcher.service';
 })
 export class HeaderComponent implements OnInit {
   currentTheme: any;
+  currentLang: any;
 
   constructor(private sw: SwitcherService) { }
 
   ngOnInit(): void {
-    this.setCurrentTheme();
+    this.applyCurrentLayoutSettings();
   }
 
-
-  setCurrentTheme() {
-    this.sw.getCurrentThemeObservable().subscribe( theme => this.currentTheme = theme );
+  applyCurrentLayoutSettings() {
+    this.sw.getCurrentThemeObservable().subscribe( (theme: any) => this.currentTheme = theme );
+    this.sw.getCurrentLangObservable().subscribe( (lang: any) => this.currentLang = lang );
   }
 
   switchTheme() {
@@ -25,9 +26,11 @@ export class HeaderComponent implements OnInit {
     this.sw.switchCurrentTheme(invertedTheme);
   }
 
+  switchLang(lang: string) {
+     this.sw.switchCurrentLang(lang);
+  }
+
   invertTheme() {
     return this.currentTheme == 'dark' ? 'light': 'dark';  
   }
-
-
 }

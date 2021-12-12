@@ -20,14 +20,16 @@
     <div>
       <div class="switcher">
         <div class="theme-switcher">
-          <p>LIGHT</p>
+          <p *ngIf="currentLang == 'en'" [ngClass]="{'isActive': currentTheme == 'light'}">LIGHT</p>
+          <p *ngIf="currentLang == 'ca'" [ngClass]="{'isActive': currentTheme == 'light'}">CLAR</p>
           <div [ngClass]="{'isDark': currentTheme == 'dark'}"  (click)="switchTheme()" class="switch"></div>
-          <p>DARK</p>
+          <p *ngIf="currentLang == 'en'" [ngClass]="{'isActive': currentTheme == 'dark'}">DARK</p>
+          <p *ngIf="currentLang == 'ca'" [ngClass]="{'isActive': currentTheme == 'dark'}">FOSC</p>
         </div>
         <div class="lang-switcher">
-          <p>EN</p>
+          <p (click)="switchLang('en')"  [ngClass]="{'isActive': currentLang == 'en'}"> EN </p>
           <div class="separator">|</div>
-          <p>CA</p>
+          <p (click)="switchLang('ca')" [ngClass]="{'isActive': currentLang == 'ca'}"> CA </p>
         </div>
       </div>
     </div>

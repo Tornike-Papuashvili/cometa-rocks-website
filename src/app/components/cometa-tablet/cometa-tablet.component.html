@@ -28,20 +28,49 @@
         </div>
     </div>
     <div class="text">
-      <h1 data-aos="fade-left">Elevator Message</h1>
-      <h4 data-aos="fade-left">COMETA is a 100% open source software suite for
+      <h1 *ngIf="currentLang == 'en'" data-aos="fade-left">Elevator Message</h1>
+      <h1 *ngIf="currentLang == 'ca'" data-aos="fade-left">Missatge de l'ascensor</h1>
+
+      <h4 *ngIf="currentLang == 'en'" data-aos="fade-left">COMETA is a 100% open source software suite for
            visual and functional regression testing, to help QA Managers,
-            DevOps and Business Owners get rid of repeating manual tests.</h4>
-      <h1 data-aos="fade-left">Highlights</h1>
-      <h4 data-aos="fade-left">100% Open Source: fork it, twist it, change it.</h4>
-      <h4 data-aos="fade-left">NO-CODE, LOW-CODE</h4>
-      <h4 data-aos="fade-left">On cloud or on premises.</h4>
-      <h4 data-aos="fade-left">No more fights with selenium webdriver.</h4>
-      <h4 data-aos="fade-left">Automate human actions on websites easily</h4>
-      <h4 data-aos="fade-left">On more than 2000 devices and with screenshots.</h4>
-      <h4 data-aos="fade-left">co.meta continously tests functionality and performes visual regression tests with image comparison.</h4>
-      <h4 data-aos="fade-left">Encrypt your data to ensure that it will never be used without your consent. Co.meta installs on premises.</h4>
-      <h4 data-aos="fade-left">Integrate co.meta smoothly thanks to the REST API and webhooks.</h4>
-      <h4 data-aos="fade-left">Cometa is to Testing what is Redhat to Linux.</h4>
+            DevOps and Business Owners get rid of repeating manual tests.
+      </h4>
+      <h4 *ngIf="currentLang == 'ca'" data-aos="fade-left">COMETA és una suite de programari 100% de codi obert per
+        proves de regressió visual i funcional, per ajudar els gestors de control de qualitat,
+         DevOps i propietaris d'empreses s'eliminen de repetir proves manuals.
+      </h4>
+
+      <h1 *ngIf="currentLang == 'en'" data-aos="fade-left">Highlights</h1>
+      <h1 *ngIf="currentLang == 'ca'" data-aos="fade-left">Destacats</h1>
+
+      <h4 *ngIf="currentLang == 'en'" data-aos="fade-left">100% Open Source: fork it, twist it, change it.</h4>
+      <h4 *ngIf="currentLang == 'ca'" data-aos="fade-left">100% de codi obert: forqueu-lo, torceu-lo, canvieu-lo.</h4>
+
+      <h4 *ngIf="currentLang == 'en'" data-aos="fade-left">NO-CODE, LOW-CODE</h4>
+      <h4 *ngIf="currentLang == 'ca'" data-aos="fade-left">Sense codi, codi baix</h4>
+      
+      <h4 *ngIf="currentLang == 'en'" data-aos="fade-left">On cloud or on premises.</h4>
+      <h4 *ngIf="currentLang == 'ca'" data-aos="fade-left">Al núvol o a les instal·lacions.</h4>
+
+      <h4 *ngIf="currentLang == 'en'" data-aos="fade-left">No more fights with selenium webdriver.</h4>
+      <h4 *ngIf="currentLang == 'ca'" data-aos="fade-left">No més baralles amb selenium webdriver.</h4>
+
+      <h4 *ngIf="currentLang == 'en'" data-aos="fade-left">Automate human actions on websites easily</h4>
+      <h4 *ngIf="currentLang == 'ca'" data-aos="fade-left">Automatitzeu les accions humanes als llocs web fàcilment</h4>
+
+      <h4 *ngIf="currentLang == 'en'" data-aos="fade-left">On more than 2000 devices and with screenshots.</h4>
+      <h4 *ngIf="currentLang == 'ca'" data-aos="fade-left">En més de 2000 dispositius i amb captures de pantalla.</h4>
+
+      <h4 *ngIf="currentLang == 'en'" data-aos="fade-left">co.meta continously tests functionality and performes visual regression tests with image comparison.</h4>
+      <h4 *ngIf="currentLang == 'ca'" data-aos="fade-left">co.meta prova contínuament la funcionalitat i realitza proves de regressió visual amb comparació d'imatges.</h4>
+
+      <h4 *ngIf="currentLang == 'en'" data-aos="fade-left">Encrypt your data to ensure that it will never be used without your consent. Co.meta installs on premises.</h4>
+      <h4 *ngIf="currentLang == 'ca'" data-aos="fade-left">Xifreu les vostres dades per assegurar-vos que mai s'utilitzaran sense el vostre consentiment. Co.meta instal·la a les instal·lacions.</h4>
+
+      <h4 *ngIf="currentLang == 'en'" data-aos="fade-left">Integrate co.meta smoothly thanks to the REST API and webhooks.</h4>
+      <h4 *ngIf="currentLang == 'ca'" data-aos="fade-left">Integra co.meta sense problemes gràcies a l'API REST i els webhooks.</h4>
+
+      <h4 *ngIf="currentLang == 'en'" data-aos="fade-left">Cometa is to Testing what is Redhat to Linux.</h4>
+      <h4 *ngIf="currentLang == 'ca'" data-aos="fade-left">Cometa és provar què és Redhat a Linux.</h4>
     </div>
 </div>

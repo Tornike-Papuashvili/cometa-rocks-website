@@ -2,12 +2,24 @@
 
   <div class="text">
     <h1 data-aos="fade-right">Web Testing</h1>
-    <h2 data-aos="fade-right">We have been waiting for you!</h2>
-    <h4 data-aos="fade-right">Some do testing already, some do not. We know that.</h4>
-    <h4 data-aos="fade-right">Testing can be a stressful job, manual testing is either fault prone or tedious.</h4>
-    <h4 data-aos="fade-right">Automated testing is often hard-code.</h4>
-    <h4 data-aos="fade-right">And fixing testcases can be a fulltime job.</h4>
-    <h4 data-aos="fade-right">Don’t break your code. Don’t break your layout. Relax.</h4>
+
+    <h2 *ngIf="currentLang == 'en'" data-aos="fade-right">We have been waiting for you!</h2>
+    <h2 *ngIf="currentLang == 'ca'" data-aos="fade-right">Us hem estat esperant!</h2>
+
+    <h4 *ngIf="currentLang == 'en'" data-aos="fade-right">Some do testing already, some do not. We know that.</h4>
+    <h4 *ngIf="currentLang == 'ca'" data-aos="fade-right">Alguns ja fan proves, altres no. Ho sabem.</h4>
+
+    <h4 *ngIf="currentLang == 'en'" data-aos="fade-right">Testing can be a stressful job, manual testing is either fault prone or tedious.</h4>
+    <h4 *ngIf="currentLang == 'ca'" data-aos="fade-right">Les proves poden ser una feina estressant, les proves manuals són propenses a errors o tediosos.</h4>
+
+    <h4 *ngIf="currentLang == 'en'" data-aos="fade-right">Automated testing is often hard-code.</h4>
+    <h4 *ngIf="currentLang == 'ca'" data-aos="fade-right">Les proves automatitzades solen ser un codi dur.</h4>
+
+    <h4 *ngIf="currentLang == 'en'" data-aos="fade-right">And fixing testcases can be a fulltime job.</h4>
+    <h4 *ngIf="currentLang == 'ca'" data-aos="fade-right">I arreglar casos de prova pot ser una feina a temps complet.</h4>
+
+    <h4 *ngIf="currentLang == 'en'" data-aos="fade-right">Don’t break your code. Don’t break your layout. Relax.</h4>
+    <h4 *ngIf="currentLang == 'ca'" data-aos="fade-right">No trenquis el teu codi. No trenquis el teu disseny. Relaxa't.</h4>
   </div>
 
   <div data-aos="fade-left" class="mobile">

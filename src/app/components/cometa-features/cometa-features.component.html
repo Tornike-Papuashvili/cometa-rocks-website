@@ -1,20 +1,45 @@
 <div [ngClass]="{'isDark': currentTheme == 'dark'}" class="section-features">
     
     <div class="header">
-        <h2 data-aos="fade-up">Cometa features</h2>
+        <h2 *ngIf="currentLang == 'en'" data-aos="fade-up">Cometa features</h2>
+        <h2 *ngIf="currentLang == 'ca'" data-aos="fade-up">Característiques del Cometa</h2>
+
         <div class="separator"></div>
-        <p data-aos="fade-up">Don't break code. Don't break layout. Using cometa provides many benefits for your project.</p>
-        <p data-aos="fade-up">
+
+        <p *ngIf="currentLang == 'en'" data-aos="fade-up">Don't break code. Don't break layout. Using cometa provides many benefits for your project.</p>
+        <p *ngIf="currentLang == 'ca'" data-aos="fade-up">No trencar el codi. No trenqueu el disseny. L'ús de cometa ofereix molts avantatges per al vostre projecte.</p>
+
+        <p *ngIf="currentLang == 'en'" data-aos="fade-up">
             Being 100% open source and providing complete functionalities via
             REST API makes integration of third party tools (
             <a target="_blank" href="https://jmeter.apache.org/">jMeter</a>, 
             <a target="_blank" href="https://www.jenkins.io/">Jenkins</a>, 
             <a target="_blank" href="htstps://git-scm.com/">Git</a>, ...) evenmore easy.
         </p>
+        <p *ngIf="currentLang == 'ca'" data-aos="fade-up">
+            Ser 100% de codi obert i proporcionar funcionalitats completes via
+            L'API REST fa la integració d'eines de tercers (
+            <a target="_blank" href="https://jmeter.apache.org/">jMeter</a>, 
+            <a target="_blank" href="https://www.jenkins.io/">Jenkins</a>, 
+            <a target="_blank" href="htstps://git-scm.com/">Git</a>, ...) encara més fàcil.
+        </p>
     </div>
 
-    <div class="content-wrapper">
-        <div class="content" *ngFor="let feature of features">
+    <div *ngIf="currentLang == 'en'" class="content-wrapper">
+        <div class="content" *ngFor="let feature of features.en">
+            <div data-aos="fade-up" class="card">
+                <div class="icon">
+                    <img [src]="feature.image">
+                </div>
+                <div class="text">
+                    <h4>{{feature.title}}</h4>
+                    <p>{{feature.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="currentLang == 'ca'" class="content-wrapper">
+        <div class="content" *ngFor="let feature of features.ca">
             <div data-aos="fade-up" class="card">
                 <div class="icon">
                     <img [src]="feature.image">

@@ -8,16 +8,16 @@ import { SwitcherService } from '../../cometa-services/shared/switcher.service';
 })
 export class CometaLaptopComponent implements OnInit {
   currentTheme: any;
+  currentLang: any;
 
   constructor(private sw: SwitcherService) { }
 
   ngOnInit(): void {
-    this.setCurrentTheme();
-  }
-  
-  setCurrentTheme() {
-    this.sw.getCurrentThemeObservable().subscribe( theme => this.currentTheme = theme );
+    this.applyCurrentLayoutSettings();  
   }
 
-
+  applyCurrentLayoutSettings() {
+    this.sw.getCurrentThemeObservable().subscribe( (theme: any) => this.currentTheme = theme );
+    this.sw.getCurrentLangObservable().subscribe( (lang: any) => this.currentLang = lang );
+  }
 }
