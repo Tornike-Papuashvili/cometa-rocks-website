@@ -27,22 +27,8 @@
         </p>
     </div>
 
-    <div *ngIf="currentLang == 'en'" class="content-wrapper">
-        <div data-aos="fade-up" class="content" *ngFor="let screenshot of screenshots.en">
-            <div class="card">
-                <div class="screenshot">
-                    <img (click)="openMagnifier($event)" [src]="screenshot.image">
-                </div>
-                <div class="text">
-                    <h4>{{screenshot.title}}</h4>
-                    <p>{{screenshot.description}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div *ngIf="currentLang == 'ca'" class="content-wrapper">
-        <div data-aos="fade-up" class="content" *ngFor="let screenshot of screenshots.ca">
+    <div class="content-wrapper">
+        <div data-aos="fade-up" class="content" *ngFor="let screenshot of getCurrentLangScreenshots()">
             <div class="card">
                 <div class="screenshot">
                     <img (click)="openMagnifier($event)" [src]="screenshot.image">

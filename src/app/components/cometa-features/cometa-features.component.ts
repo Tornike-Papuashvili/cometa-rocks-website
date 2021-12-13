@@ -90,4 +90,12 @@ export class CometaFeaturesComponent implements OnInit {
     this.sw.getCurrentLangObservable().subscribe( (lang: any) => this.currentLang = lang );
   }
 
+  //filters features by currentLang value and returns an array of objects translated in current language
+  getCurrentLangFeatures() {
+    const currentLangEntry =  Object.entries(this.features).filter(([key]) => key === this.currentLang);
+    const currentLangFeatures  = Object.fromEntries(currentLangEntry);
+    const currentLangValues = Object.values(currentLangFeatures)[0];
+    return currentLangValues;
+  }
+
 }

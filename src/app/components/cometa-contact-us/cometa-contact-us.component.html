@@ -8,40 +8,40 @@
 
     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
         <div data-aos="fade-left" class="form-group">
-            <label for="name">Name</label>
+            <h4>Name</h4>
             <input type="text" formControlName="name" class="form-control"/>
             <div *ngIf="submitted && form['name'].errors" class="invalid-feedback">
                 <div *ngIf="form['name'].errors['required']">name is required</div>
             </div>
         </div>
         <div data-aos="fade-left" class="form-group">
-            <label for="email">Email</label>
+            <h4>Email</h4>
             <input type="text" formControlName="email" class="form-control"/>
             <div *ngIf="submitted && form['email'].errors" class="invalid-feedback">
                 <div *ngIf="form['email'].errors['required']">email is required</div>
             </div>
         </div>
         <div data-aos="fade-left" class="form-group">
-            <label for="subject">Subject</label>
+            <h4>Subject</h4>
             <input type="text" formControlName="subject" class="form-control"/>
             <div *ngIf="submitted && form['subject'].errors" class="invalid-feedback">
                 <div *ngIf="form['subject'].errors['required']">subject is required</div>
             </div>
         </div>
         <div data-aos="fade-left" class="form-group">
-            <label for="message">Message</label>
+            <h4>Message</h4>
             <input type="text" formControlName="message" class="form-control"/>
             <div *ngIf="submitted && form['message'].errors" class="invalid-feedback">
                 <div *ngIf="form['message'].errors['required']">message is required</div>
             </div>
         </div>
-        <div data-aos="fade-left" class="form-group">
+        <!--<div data-aos="fade-left" class="form-group">
             <label for="captcha">Please type what you see in the image above</label>
             <input type="text" formControlName="captcha" class="form-control"/>
             <div *ngIf="submitted && form['captcha'].errors" class="invalid-feedback">
                 <div *ngIf="form['captcha'].errors['required']">captcha is required</div>
             </div>
-        </div>
+        </div>-->
         <div data-aos="fade-left" class="form-group">
             <button [disabled]="loading"> Submit </button>
         </div>

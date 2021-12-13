@@ -1,15 +1,6 @@
 <footer [ngClass]="{'isDark': currentTheme == 'dark'}">
-    <div *ngIf="currentLang == 'en'" class="links-wrapper">
-        <div class="links" *ngFor="let link of links.en">
-            <div data-aos="fade-up" class="title">{{link.title}}</div>
-            <ul data-aos="fade-up" *ngFor="let content of link.content">
-                <li><a target="_blank" href="{{content.href}}">{{content.name}}</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div *ngIf="currentLang == 'ca'" class="links-wrapper">
-        <div class="links" *ngFor="let link of links.ca">
+    <div class="links-wrapper">
+        <div class="links" *ngFor="let link of getCurrentLangLinks()">
             <div data-aos="fade-up" class="title">{{link.title}}</div>
             <ul data-aos="fade-up" *ngFor="let content of link.content">
                 <li><a target="_blank" href="{{content.href}}">{{content.name}}</a></li>

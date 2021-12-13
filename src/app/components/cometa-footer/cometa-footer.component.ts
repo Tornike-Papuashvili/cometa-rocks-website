@@ -8,7 +8,7 @@ import { SwitcherService } from '../../cometa-services/shared/switcher.service';
 })
 export class CometaFooterComponent implements OnInit {
   links = {
-    en: [
+    en: [      
       { 
         title: "Co.meta",
         content: [
@@ -85,10 +85,23 @@ export class CometaFooterComponent implements OnInit {
 
   ngOnInit(): void {
     this.applyCurrentLayoutSettings();
+    this.getCurrentLangLinks();
+  }
+
+  //filters links by currentLang value and returns an array of objects translated in current language
+  getCurrentLangLinks() {
+    const currentLangEntry =  Object.entries(this.links).filter(([key]) => key === this.currentLang);
+    const currentLangLinks = Object.fromEntries(currentLangEntry);
+    const currentLangValues = Object.values(currentLangLinks)[0];
+    return currentLangValues;
   }
 
   applyCurrentLayoutSettings() {
     this.sw.getCurrentThemeObservable().subscribe( (theme: any) => this.currentTheme = theme );
-    this.sw.getCurrentLangObservable().subscribe( (lang: any) => this.currentLang = lang );
+    this.sw.getCurrentLangObservable().subscribe( 
+      (lang: any) => {
+        this.currentLang = lang
+      }
+    );
   }
 }

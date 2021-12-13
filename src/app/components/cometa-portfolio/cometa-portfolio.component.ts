@@ -190,6 +190,14 @@ export class CometaPortfolioComponent implements OnInit {
     this.sw.getCurrentThemeObservable().subscribe( (theme: any) => this.currentTheme = theme );
     this.sw.getCurrentLangObservable().subscribe( (lang: any) => this.currentLang = lang );
   }
+
+  //filters screenshots by currentLang value and returns an array of objects translated in current language
+  getCurrentLangScreenshots() {
+    const currentLangEntry =  Object.entries(this.screenshots).filter(([key]) => key === this.currentLang);
+    const currentLangScreenshots  = Object.fromEntries(currentLangEntry);
+    const currentLangValues = Object.values(currentLangScreenshots)[0];
+    return currentLangValues;
+  }
   
 
   openMagnifier(event: any) {

@@ -33,7 +33,7 @@ export class CometaContactUsComponent implements OnInit {
       email: ['', Validators.required],
       subject: ['', Validators.required],
       message: ['', Validators.required],
-      captcha: ['', Validators.required]
+      //captcha: ['', Validators.required]
     });
   }
 
@@ -48,7 +48,10 @@ export class CometaContactUsComponent implements OnInit {
           return;
       }
 
-      this.loading = true;
-      //todo logic for mail sending
+      //disable loading to prevent multiple clicks while mail is being sent
+      //this.loading = true;
+      //todo send mail
+      console.log(this.contactForm.value);
+      
   }
 }

@@ -10,18 +10,9 @@
         <p *ngIf="currentLang == 'ca'" data-aos="fade-up">El temps sempre significa diners. co.meta redueix les hores de prova a minuts o segons.</p>
     </div>
 
-    <div *ngIf="currentLang == 'en'" class="content-wrapper">
+    <div class="content-wrapper">
         <ul>
-            <li data-aos="fade-up" *ngFor="let ch of characteristics.en">
-                <img [src]="ch.image">
-                <p>{{ch.description}}</p>
-            </li>
-        </ul>
-    </div>
-
-    <div *ngIf="currentLang == 'ca'" class="content-wrapper">
-        <ul>
-            <li data-aos="fade-up" *ngFor="let ch of characteristics.ca">
+            <li data-aos="fade-up" *ngFor="let ch of getCurrentLangCharacteristics()">
                 <img [src]="ch.image">
                 <p>{{ch.description}}</p>
             </li>

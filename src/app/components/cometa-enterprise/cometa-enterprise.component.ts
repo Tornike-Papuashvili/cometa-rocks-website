@@ -105,4 +105,12 @@ characteristics = {
         this.sw.getCurrentLangObservable().subscribe( (lang: any) => this.currentLang = lang );
     }
 
+    //filters Characteristics by currentLang value and returns an array of objects translated in current language
+    getCurrentLangCharacteristics() {
+        const currentLangEntry =  Object.entries(this.characteristics).filter(([key]) => key === this.currentLang);
+        const currentLangCharacteristics  = Object.fromEntries(currentLangEntry);
+        const currentLangValues = Object.values(currentLangCharacteristics)[0];
+        return currentLangValues;
+    }
+
 }

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { loadStripe } from '@stripe/stripe-js';
 import { environment } from '../../../environments/environment';
 import { SwitcherService } from '../../cometa-services/shared/switcher.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-cometa-users',
@@ -57,11 +58,20 @@ export class CometaUsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.applyCurrentLayoutSettings();
+    this.inicializeForm();
   }
 
   applyCurrentLayoutSettings() {
     this.sw.getCurrentThemeObservable().subscribe( (theme: any) => this.currentTheme = theme );
     this.sw.getCurrentLangObservable().subscribe( (lang: any) => this.currentLang = lang );
+  }
+
+  //filters testimonials by currentLang value and returns an array of objects translated in current language
+  getCurrentLangTestimonials() {
+    const currentLangEntry =  Object.entries(this.testimonials).filter(([key]) => key === this.currentLang);
+    const currentLangTestimonials  = Object.fromEntries(currentLangEntry);
+    const currentLangValues = Object.values(currentLangTestimonials)[0];
+    return currentLangValues;
   }
 
   activateDonatePanel() {

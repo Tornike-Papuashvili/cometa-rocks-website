@@ -10,12 +10,10 @@
     </div>
     
     <div class="content-wrapper">
-
         <div data-aos="fade-right" class="logo"></div>
-
-        <div *ngIf="currentLang == 'en'" class="content">
+        <div class="content">
             <div class="title"><h1 data-aos="fade-left">What co.meta users say</h1></div>
-            <div data-aos="fade-left" class="testimonial" *ngFor="let testimonial of testimonials.en">
+            <div data-aos="fade-left" class="testimonial" *ngFor="let testimonial of getCurrentLangTestimonials()">
                 <span class="testimonial-quote">&quot;{{testimonial.quote}}</span>
                 <i> {{testimonial.text}}&quot; </i>
                 <p class="testimonial_from" style="font-family: 'Montserrat','Arial'; padding-top:20px">
@@ -24,19 +22,6 @@
                 </p>
             </div>
         </div>
-
-        <div *ngIf="currentLang == 'ca'" class="content">
-            <div class="title"><h1 data-aos="fade-left">What co.meta users say</h1></div>
-            <div data-aos="fade-left" class="testimonial" *ngFor="let testimonial of testimonials.ca">
-                <span class="testimonial-quote">&quot;{{testimonial.quote}}</span>
-                <i> {{testimonial.text}}&quot; </i>
-                <p class="testimonial_from" style="font-family: 'Montserrat','Arial'; padding-top:20px">
-                    {{testimonial.form}}
-                    <br />{{testimonial.footer_text}}
-                </p>
-            </div>
-        </div>
-
     </div>
 
     <div class="links">
